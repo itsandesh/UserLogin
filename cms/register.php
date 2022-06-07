@@ -1,38 +1,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-
-
-
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-$recaptcha = $_POST['g-recaptcha-response'];
-$res = reCaptcha($recaptcha);
-if($res['success']){
-  // Send email
-}else{
-  // Error
-} 
-function reCaptcha($recaptcha){
-  $secret = "6LfjbkMgAAAAAAcL0eM778zYsK7-_tg32m2Tqi0    g";
-  $ip = $_SERVER['REMOTE_ADDR'];
-
-  $postvars = array("secret"=>$secret, "response"=>$recaptcha, "remoteip"=>$ip);
-  $url = "https://www.google.com/recaptcha/api/siteverify";
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $postvars);
-  $data = curl_exec($ch);
-  curl_close($ch);
-
-  return json_decode($data, true);
-}
-
-</script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <?php  
 require '../config/init.php';
 $title = "Userlogin";
@@ -47,24 +16,42 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
     redirect('dashboard.php','success', 'Welcome back to admin panel.');
 }
 
-// if (isset($_POST['submit']) && $_POST['g-recaptcha-response'] != "") {
-//     include "db_config.php";
-//     $secret = 'secret key';
-//     $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
-//     $responseData = json_decode($verifyResponse);
-//     if ($responseData->success) {
 
-//         //first validate then insert in db
-//         // $name = $_POST['name'];
-//         // $email = $_POST['email'];
-//         // $pass = $_POST['password'];
-//         // mysqli_query($conn, "INSERT INTO signup(name, email ,password) VALUES('" . $_POST['name'] . "', '" . $_POST['email'] . "', '" . md5($_POST['password']) . "')");
-//         echo "Your registration has been successfully done!";
-//     }
-// }
-// }
-
-
+// Checking valid form is submitted or not
+if (isset($_POST['submitbtn'])) {
+      
+    // Storing name in $name variable
+    $name = $_POST['name'];
+    
+    // Storing google recaptcha response
+    // in $recaptcha variable
+    $recaptcha = $_POST['g-recaptcha-response'];
+  
+    // Put secret key here, which we get
+    // from google console
+    $secret_key = '6LcYGkkgAAAAAI1l12cKl6__FkKhtSzw3GMVX64O';
+  
+    // Hitting request to the URL, Google will
+    // respond with success or error scenario
+    $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
+          . $secret_key . '&response=' . $recaptcha;
+  
+    // Making request to verify captcha
+    $response = file_get_contents($url);
+  
+    // Response return by google is in
+    // JSON format, so we have to parse
+    // that json
+    $response = json_decode($response);
+  
+    // Checking, if response is true or not
+    if ($response->success == true) {
+        echo '<script>alert("Google reCAPTACHA verified")</script>';
+    } else {
+        echo '<script>alert("Error in Google reCAPTACHA")</script>';
+    }
+}
+  
 ?>
 <body>
     <div class="container">
@@ -88,19 +75,18 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
                                     <span class="error" id="email_error"> </span>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password"  id = "pass" name="pass" type="password" value="">
-                                    <meter style="width:100%" title="strengthbar" id="meterbar" value="0" max="3" ></meter>
-                                </span>
+                                    <input  onkeyup=" " class="form-control" placeholder="Password"  id = "pass" name="pass" type="password" value="">
+                                    <div id="met">
+                                        <meter style="width:80%" title="strengthbar" id="meterbar" value="0" max="3" ></meter>
+                                        <span class ="form-group" id = "metertext"></span>
+                                    </div>
                                 <span class="error" id="pass_error"> </span>
-                                <!-- <div class="form-group  g-recaptcha" data-sitekey="site key"></div> -->
                                 </div>
-                                
-                                <div class="form-group g-recaptcha brochure__form__captcha" data-sitekey="6LfjbkMgAAAAAAcL0eM778zYsK7-_tg32m2Tqi0g"></div>
-                                <!-- Change this to a button or input when using this as a form -->
+                                <div class="g-recaptcha" data-sitekey="6LfjbkMgAAAAAAcL0eM778zYsK7-_tg32m2Tqi0g"></div>
+                                <!-- <div class="form-group g-recaptcha" data-sitekey=”6LcYGkkgAAAAAA00sBn96f3nYzrCvusQgmTNisc9”></div>  -->
 
                                 <button type="button" id="submitbtn" class="btn btn-lg btn-success btn-block">Register</button>
 
-                                <!-- <a href="#" onclick="checkpass()" class="btn btn-lg btn-success btn-block">Register</a> -->
                             </fieldset>
                         </form>
                     </div>
@@ -110,22 +96,5 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
     </div>
     <script type="text/javascript" src="./validation.js"></script>
 </body>
-    
-
-
-    <!-- <script>
-        function checkpass() {
-          var pass =  document.getElementById('pass').value
-        console.log(pass.length)
-    
-          if(pass.length<8){
-              console.log("short")
-              
-          }else{
-          console.log('long');
         
-          }
-        }
-    </script> -->
-    
 <?php require 'inc/footer.php';?>

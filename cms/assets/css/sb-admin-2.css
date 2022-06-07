@@ -22,7 +22,7 @@
 
 .error span {
   color:
-    red;
+    rgb(45, 107, 239);
 }
 
 .success span {
@@ -32,7 +32,7 @@
 
 span.error {
   color:
-    red;
+    rgb(45, 107, 239);
 }
 
 i {
@@ -42,13 +42,19 @@ i {
 
 
 /* css for the password strength validation bar */
+/* meter.panel-body {
+  margin-right: 20px;
+} */
+
+
 
 meter[value="1"]::-webkit-meter-optimum-value {
   background: red;
+
 }
 
 meter[value="2"]::-webkit-meter-optimum-value {
-  background: yellow;
+  background: blue;
 }
 
 
@@ -57,8 +63,10 @@ meter[value="3"]::-webkit-meter-optimum-value {
 }
 
 
+
+
 body {
-  background-color: #f8f8f8;
+  background-color: #2abfb8;
 }
 
 #wrapper {

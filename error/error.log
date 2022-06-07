@@ -11,3 +11,5 @@
 2019-06-26 12:51 PM: Select (PDO), (SELECT news.*, users.name FROM news WHERE news.id = 74 ORDER BY news.id DESC )SQLSTATE[42S22]: Column not found: 1054 Unknown column 'users.name' in 'field list'
 2019-06-26 12:53 PM: Select (PDO), (SELECT news.*, users.name FROM news  WHERE news.id = 74 ORDER BY news.id DESC )SQLSTATE[42S22]: Column not found: 1054 Unknown column 'users.name' in 'field list'
 2022-06-03 10:21 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2022-06-07 04:01 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2022-06-07 04:01 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
