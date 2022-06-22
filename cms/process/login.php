@@ -9,8 +9,7 @@
         }
 
         $password = sha1($email.$_POST['password']);
-
-        $user_info = $user->getUserBUserName($email);
+        $user_info = $user->getUserByEmail($email);
         if($user_info){
             if($user_info[0]->password == $password){
                 if($user_info[0]->role == 'admin'){
