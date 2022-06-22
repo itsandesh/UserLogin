@@ -3,14 +3,14 @@
     $user = new User;
 
     if(isset($_POST) && !empty($_POST)){
-        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);    // email, full
+        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);    //email, full
         if(!$email){
             redirect('../','error','Invalid username');
         }
 
         $password = sha1($email.$_POST['password']);
 
-        $user_info = $user->getUserByUserName($email);
+        $user_info = $user->getUserBUserName($email);
         if($user_info){
             if($user_info[0]->password == $password){
                 if($user_info[0]->role == 'admin'){

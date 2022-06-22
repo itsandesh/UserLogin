@@ -12,50 +12,57 @@ $(document).ready(function () {
         checkpass();
     });
 
+    $('#cpassword').on('input', function () {
+        checkcpass();
+    });
+
 
     $('#submitbtn').click(function () {
 
-        if (!checkusername() && !checkemail() && !checkpass()) {
+        // const form = document.getElementById("myform")
+        // const formData = new FormData(form)
+
+        if (!checkusername() && !checkemail() && !checkpass() && !checkcpass()) {
             console.log("er1");
             $("#message").html(
-                `<div class=" alert alert-warning">Please fill all required field</div>`);
+                `<div class=" alert alert-warning">Please fill all required field first</div>`);
 
-        } else if (!checkusername() || !checkemail() || !checkpass()) {
+        } else if (!checkusername() || !checkemail() || !checkpass() || !checkcpass()) {
             $("#message").html(`<div class="alert alert-warning">Please fill all required field</div>`);
             console.log("er");
         }
         else {
 
-            console.log("in Submit");
-            $("#message").html("");
-            var form = $('#myform')[0];
-            var data = new FormData(form);
-            $.ajax({
-                type: "",
-                url: " ",
-                data: data,
-                processData: false,
-                contentType: false,
-                cache: false,
-                async: false,
-                beforeSend: function () {
-                    $('#submitbtn').html('<i class="fa-solid fa-spinner fa-spin"></i>');
-                    $('#submitbtn').attr("disabled", true);
-                    $('#submitbtn').css({ "border-radius": "100%" });
-                },
+            var username = $('input[name=username]').val();
+            var email = $('input[name=email]').val();
+            var password = $('input[name=pass]').val();
 
-                success: function (data) {
-                    $('#message').html(data);
+            // const data = {
+            //     username: formData.get('username'),
+            //     email: formData.get('email'),
+            //     password: formData.get('password')
+            // }
+
+            var formData = { name: username, email: email, password: password };
+            console.log("in Submit");
+            console.log(username);
+            console.log(email);
+            console.log(password);
+            console.log(formData)
+            $.ajax({
+                url: "http://login-acs.san/cms/process/register1.php",
+                type: 'POST',
+                data: formData,
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    $('#message').html('<span style="color: green">Form submitted successfully</span>');
                 },
-                complete: function () {
-                    setTimeout(function () {
-                        $('#myform').trigger("reset");
-                        $('#submitbtn').html('Submit');
-                        $('#submitbtn').attr("disabled", false);
-                        $('#submitbtn').css({ "border-radius": "4px" });
-                    }, 50000);
+                error: function (response) {
+                    console.log(response)
+                    $('#message').html('<span style="color: red">Form not submitted. Some error in running the database query.</span>');
                 }
-            });
+            })
         }
     });
 });
@@ -64,7 +71,6 @@ $(document).ready(function () {
 function checkusername() {
     var pattern = /^[A-Za-z0-9]+$/;
     var user = $('#username').val();
-    console.log(user)
     var validuser = pattern.test(user);
     if (user == "") {
         $('#username_error').html('username cannot be empty');
@@ -83,7 +89,6 @@ function checkusername() {
 function checkemail() {
     var pattern1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     var email = $('#email').val();
-    console.log(email)
     var validemail = pattern1.test(email);
     if (email == "") {
         $('#email_error').html('email cannot be empty');
@@ -99,14 +104,12 @@ function checkemail() {
 
 function checkpass() {
 
-    console.log(meterbar.value);
     var pattern2 = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     var pattern3 = /^(?=.*[!@#$%^&*])/;
     var pattern4 = /^(?=.*[a-z])/;
     var pattern5 = /^(?=.*[A-Z])/;
     var pattern6 = /^(?=.*\d)/;
     var pass = $('#pass').val();
-    console.log(pass);
     var validpass = pattern2.test(pass);
     var validpattern1 = pattern3.test(pass);
     var validpattern2 = pattern4.test(pass);
@@ -147,4 +150,38 @@ function checkpass() {
         $('#pass_error').html("");
         return true;
     }
+}
+
+function checkcpass() {
+    var pass = $('#pass').val();
+    var cpass = $('#cpassword').val();
+    if (cpass == "") {
+        $('#cpassword_err').html('confirm password cannot be empty');
+        return false;
+    } else if (pass !== cpass) {
+        $('#cpassword_err').html('confirm password did not match');
+        return false;
+    } else {
+        $('#cpassword_err').html('');
+        return true;
+    }
+}
+
+function password_show_hide() {
+    console.log('ok');
+    var x = document.getElementById("pass");
+    console.log(x);
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+        x.type = "text";
+        show_eye.style.display = "none";
+        hide_eye.style.display = "block";
+    } else {
+        x.type = "password";
+        show_eye.style.display = "block";
+        hide_eye.style.display = "none";
+    }
+
 }

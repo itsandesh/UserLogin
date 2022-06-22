@@ -8,6 +8,10 @@
 
 /* css for the validation.js */
 
+.div1 {
+  margin-right: 100px;
+}
+
 .error input {
   border-color:
     red;
@@ -41,10 +45,7 @@ i {
 }
 
 
-/* css for the password strength validation bar */
-/* meter.panel-body {
-  margin-right: 20px;
-} */
+
 
 
 

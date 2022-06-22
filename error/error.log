@@ -13,3 +13,20 @@
 2022-06-03 10:21 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
 2022-06-07 04:01 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
 2022-06-07 04:01 AM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2022-06-13 06:13 PM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2022-06-21 07:14 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:17 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:17 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:20 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:22 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:32 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:33 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:37 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:37 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:45 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:47 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:48 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-21 07:52 PM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-22 03:38 AM: Update (PDO), (INSERT INTO  users SET username = :_username, email = :_email, password = :_password, status = :_status, role = :_role, remember_token = :_remember_token, last_ip = :_last_ip, last_log = :_last_log, created_at = :_created_at, updated_at = :_updated_at)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'field list'
+2022-06-22 09:21 AM: Update (PDO), (INSERT INTO  users SET name = :_name, email = :_email, password = :_password, recaptcha = :_recaptcha)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'recaptcha' in 'field list'
+2022-06-22 09:22 AM: Update (PDO), (INSERT INTO  users SET name = :_name, email = :_email, password = :_password, recaptcha = :_recaptcha)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'recaptcha' in 'field list'
