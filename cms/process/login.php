@@ -7,7 +7,6 @@
         if(!$email){
             redirect('../','error','Invalid username');
         }
-
         $password = sha1($email.$_POST['password']);
         $user_info = $user->getUserByEmail($email);
         if($user_info){
@@ -19,7 +18,6 @@
                         $_SESSION['email'] = $user_info[0]->email;
                         $token = getRandomString(100);
                         $_SESSION['token'] = $token;
-
                         $data = array(
                             'last_ip' => $_SERVER['REMOTE_ADDR'],
                             'last_login' => date('Y-m-d H:i:s')

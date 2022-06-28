@@ -29,6 +29,9 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
+                                <div class="form-group"  style="text-align:center">
+                                    <a href="./fpassword.php" > Forget Password </a>
+                                    </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">

@@ -8,7 +8,18 @@
             <span class="icon-bar"></span>
         </button>
     </div>
+    <!-- <a class="navbar-brand" href="#"> Navbar</a> -->
     <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-left">
+
+        <a  class="navbar-brand" style="color:darkblue" href ="./dashboard.php">
+          
+         Dashboard
+     
+        </a>
+    </ul>
+
+    
 
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
@@ -17,6 +28,9 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
+                    <a href="./forgetpassword.php">
+                        <i class="fa fa-sign-out fa-fw"></i> Reset Password 
+                    </a>
                     <a href="logout.php">
                         <i class="fa fa-sign-out fa-fw"></i> Logout
                     </a>
