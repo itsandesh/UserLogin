@@ -28,7 +28,7 @@
                         }
 
                         $user->updateUser($data, $user_info[0]->id);
-                        
+                       
                         redirect('../dashboard.php', 'success', 'Welcome to admin panel.');
                     } else {
                         redirect('../', 'error', 'Your account is not active.');

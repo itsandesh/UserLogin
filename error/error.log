@@ -34,3 +34,4 @@
 2022-06-28 06:32 PM: Update (PDO), (INSERT INTO  users SET email = :_email, password = :_password, cpassword = :_cpassword, role = :_role)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cpassword' in 'field list'
 2022-06-28 06:33 PM: Update (PDO), (INSERT INTO  users SET email = :_email, password = :_password, cpassword = :_cpassword, role = :_role)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cpassword' in 'field list'
 2022-06-28 07:53 PM: Update (PDO), (INSERT INTO  users SET email = :_email, password = :_password, cpassword = :_cpassword, role = :_role)SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cpassword' in 'field list'
+2022-06-29 12:35 PM: Connection (PDO), SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
