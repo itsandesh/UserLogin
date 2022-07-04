@@ -32,12 +32,9 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
                                 <div class="form-group"  style="text-align:center">
                                     <a href="./fpassword.php" > Forget Password </a>
                                     </div>
-
-                                <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">
                                     Login
-                                </button>
-                               
+                                </button>                              
                             </fieldset>
                         </form><br>
                         <form role="form" method="post" action="./register.php">

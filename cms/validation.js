@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     $('#met').hide();
     $('#username').on('input', function () {
@@ -18,15 +16,10 @@ $(document).ready(function () {
 
 
     $('#submitbtn').click(function () {
-
-        // const form = document.getElementById("myform")
-        // const formData = new FormData(form)
-
         if (!checkusername() && !checkemail() && !checkpass() && !checkcpass()) {
             console.log("er1");
             $("#message").html(
                 `<div class=" alert alert-warning">Please fill all required field first</div>`);
-
         } else if (!checkusername() || !checkemail() || !checkpass() || !checkcpass()) {
             $("#message").html(`<div class="alert alert-warning">Please fill all required field</div>`);
             console.log("er");
@@ -36,13 +29,6 @@ $(document).ready(function () {
             var username = $('input[name=username]').val();
             var email = $('input[name=email]').val();
             var password = $('input[name=pass]').val();
-
-            // const data = {
-            //     username: formData.get('username'),
-            //     email: formData.get('email'),
-            //     password: formData.get('password')
-            // }
-
             var formData = { name: username, email: email, password: password };
             console.log("in Submit");
             console.log(username);
@@ -67,7 +53,6 @@ $(document).ready(function () {
     });
 });
 
-
 function checkusername() {
     var pattern = /^[A-Za-z0-9]+$/;
     var user = $('#username').val();
@@ -84,7 +69,6 @@ function checkusername() {
         return true;
     }
 }
-
 
 function checkemail() {
     var pattern1 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -103,7 +87,6 @@ function checkemail() {
 }
 
 function checkpass() {
-
     var pattern2 = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     var pattern3 = /^(?=.*[!@#$%^&*])/;
     var pattern4 = /^(?=.*[a-z])/;
@@ -130,7 +113,6 @@ function checkpass() {
 
     } else if ($('#pass').val().length > 0) {
         document.getElementById("meterbar").value = "1";
-
         div.textContent = 'weak';
         div.style.color = 'red';
         $('#met').show();
@@ -138,7 +120,6 @@ function checkpass() {
     else {
         $('#met').hide();
     }
-
     if (pass == "") {
         $('#pass_error').html('password can not be empty');
         return false;
@@ -183,5 +164,4 @@ function password_show_hide() {
         show_eye.style.display = "block";
         hide_eye.style.display = "none";
     }
-
 }

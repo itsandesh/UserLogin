@@ -56,54 +56,7 @@ function getRandomString($len =100){
 }
 
 function sanitize($str){
-    // mysqli_real_escape_string($str); 
     $str = strip_tags($str);
     $str = rtrim($str);
     return $str;
-}
-
-function uploadSingleImage($file, $dir){
-    if($file['error'] == 0){
-        $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-        if(in_array($ext, IMAGE_EXTENSIONS)){
-            if($file['size'] <= 5000000){
-                $path = UPLOAD_DIR.'/'.$dir;
-
-                if(!is_dir($path)){
-                    mkdir($path, 0777,true);
-                }
-
-                $file_name = ucfirst($dir)."-".date('Ymdhis').rand(0,999).".".$ext;
-
-                $succss = move_uploaded_file($file['tmp_name'], $path.'/'.$file_name);
-                if($succss){
-                    return $file_name;
-                } else {
-                    return false;
-                }
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
-    } else {
-        return null;
-    }
-}
-
-function getYoutubeIdFromUrl($url){
-    // preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $match);
-
-    preg_match("#([\/|\?|&]vi?[\/|=]|youtu\.be\/|embed\/)([a-zA-Z0-9_-]+)#", $url, $matches);
-    return $matches[2];
-}
-
-
-function getCurrentUrl(){
-    return SITE_URL.$_SERVER['REQUEST_URI'];
-}
-
-function getPagename(){
-    return pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 }

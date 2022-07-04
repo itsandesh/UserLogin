@@ -10,7 +10,6 @@
         );
         $user->updateUser($data, $user_id);
     }
-
     session_destroy();
 
     redirect('./');

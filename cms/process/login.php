@@ -26,7 +26,6 @@
                             setcookie('_au',$token, time()+8640000, '/');
                             $data['remember_token'] = $token;
                         }
-
                         $user->updateUser($data, $user_info[0]->id);
                        
                         redirect('../dashboard.php', 'success', 'Welcome to admin panel.');

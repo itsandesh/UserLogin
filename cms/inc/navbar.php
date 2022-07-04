@@ -1,7 +1,4 @@
 <!-- Navigation -->
-
-
-
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -14,11 +11,8 @@
     <!-- <a class="navbar-brand" href="#"> Navbar</a> -->
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-left">
-
-        <a  class="navbar-brand" style="color:darkblue" href ="./dashboard.php">
-          
-         Dashboard
-     
+        <a  class="navbar-brand" style="color:darkblue" href ="./dashboard.php">        
+         Dashboard  
         </a>
     </ul>
 

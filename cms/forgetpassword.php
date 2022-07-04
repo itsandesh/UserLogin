@@ -7,10 +7,7 @@ require 'inc/header.php';
 ?>
 <body>
     <div id="wrapper">
-
-        <?php require 'inc/navbar.php';?>
-       
-        <!-- Page Content -->
+        <?php require 'inc/navbar.php';?> 
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -18,21 +15,17 @@ require 'inc/header.php';
                         <?php flash();?>
                         <h1 class="page-header">Change Password </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
             <form id="Form" method="post" action="process/forgetpassword1.php" >
                 <div class="row">
                     <div class="col-12">
 
-                                <div class="form-group row ">
+                            <div class="form-group row ">
                                  <label for="" class="col-sm-3"> Current Password </label>
                                       <div  class="col-sm-9">
                                          <input  class="form-control" type="password" name="currentpass" id="currentpass"  placeholder ="Your current password">
                                      </div>
                                 </div>
-
-
                             <div class="form-group row">
                                 <label for="" class="col-sm-3">New password: </label>
                                 <div  class="col-sm-9">
@@ -45,9 +38,7 @@ require 'inc/header.php';
                                         </div> 
                                         <span class="error" id="pass_error"> </span>
                                     </div> 
-                                    
-                                </div>      
-                              
+                                </div>         
                             </div>
                             <div class="form-group row ">
                             <label for="" class="col-sm-3"> Confirm New password: </label>
@@ -55,9 +46,7 @@ require 'inc/header.php';
                                    <input  class="form-control" type="password" name="cpass" id="cpassword"  placeholder ="Confirm New  Password">
                                         <span class="error" id="cpassword_err"> </span>
                                         </div>
-                                </div>
-                            
-
+                                </div>                         
                             <div class="form-group row">
                                 <label for="" class="col-sm-3"></label>
                                 <div class="col-sm-9">
@@ -70,16 +59,16 @@ require 'inc/header.php';
                     </div>
                 </div>
             </div>
-</form>
-            
-            <!-- /.container-fluid -->
+        </form>
         </div>
-        <!-- /#page-wrapper -->
     </div>
     <script type="text/javascript" src="./validation.js"></script>
 </body>
 <script>
-    function myFunction() {
+
+// Show password 
+
+function myFunction() {
   var x = document.getElementById("pass");
   if (x.type === "password") {
     x.type = "text";
@@ -87,7 +76,6 @@ require 'inc/header.php';
     x.type = "password";
   }
 }
-    </script>
-    
+</script>
 <?php require 'inc/footer.php';?>
 

@@ -9,11 +9,9 @@ require 'inc/header.php';
 if(isset($_SESSION, $_SESSION['token']) && !empty($_SESSION['token'])){
     redirect('dashboard.php','success', 'You are already logged in.');
 }
-
 if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
     redirect('dashboard.php','success', 'Welcome back to admin panel.');
 }
-
 ?>
 <body>
     <div class="container">
@@ -43,6 +41,9 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
                                     <div class="form-group">
                                     <input  onkeyup=" " class="form-control" placeholder="Password"  id = "pass" name="pass" required type="password" value="">
                                         </div>
+
+                                        <!-- Password Strength Bar -->
+
                                     <div id="met">
                                         <meter style="width:80%" title="strengthbar" id="meterbar" value="0" max="3" ></meter>
                                         <span class ="form-group" id = "metertext"></span>
@@ -52,9 +53,11 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
                                    <input  class="form-control" type="password" name="cpass" id="cpassword" required  placeholder ="confirm Password">
                                         <span class="error" id="cpassword_err"> </span>
                                     </div>
+
+                                     <!-- Used recaptcha V2 -->
+
                                 <div class="g-recaptcha" id="divCaptcha"></div></br>
                                 <input type="hidden" name="recaptcha" id="txtCaptcha">
-                                <!-- <div class="form-group g-recaptcha" data-sitekey=”6LcYGkkgAAAAAA00sBn96f3nYzrCvusQgmTNisc9”></div>  -->
                                 <div><button type="submit" id="asubmitbtn" class="btn btn-lg btn-success btn-block">Register</button></div>
                             </fieldset>
                         </form>
@@ -67,6 +70,8 @@ if(isset($_COOKIE, $_COOKIE['_au']) && !empty($_COOKIE['_au'])){
 </body>
 <script>
 
+    // Recaptcha Function 
+
 var onloadCallback = function () {
     grecaptcha.render('divCaptcha', {
         'sitekey': '6LfjbkMgAAAAAAcL0eM778zYsK7-_tg32m2Tqi0g',
@@ -77,6 +82,8 @@ var onloadCallback = function () {
     })
 }
 
+ // Show Password 
+ 
 function myFunction() {
   var x = document.getElementById("pass");
   if (x.type === "password") {
@@ -86,6 +93,5 @@ function myFunction() {
   }
 }
 
-</script>
-        
+</script>       
 <?php require 'inc/footer.php';?>

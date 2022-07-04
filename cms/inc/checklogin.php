@@ -9,7 +9,6 @@
                 setcookie('_au','',time()-60,'/');
                 redirect('./','error', 'Please login first');
             }
-
             $_SESSION['user_id'] = $user_info[0]->id;
             $_SESSION['name'] = $user_info[0]->name;
             $_SESSION['email'] = $user_info[0]->email;
